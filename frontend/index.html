@@ -1,15 +1,22 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Zifah AI</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/brain.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zifah Chat</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Zifah AI Command Panel</h1>
-  <input id="userInput" placeholder="Type a command...">
-  <button onclick="sendCommand()">Send</button>
-  <div id="zifahResponse"></div>
+  <header>
+    <h1>ZIFAH</h1>
+  </header>
+  <main id="chat-window">
+    <div id="chat-log"></div>
+  </main>
+  <footer>
+    <input type="text" id="user-input" placeholder="Type your command..." />
+    <button onclick="sendCommand()">Send</button>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
