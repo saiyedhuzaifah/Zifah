@@ -11,7 +11,7 @@ function sendCommand() {
   log.innerHTML += `<div><strong>You:</strong> ${command}</div>`;
   input.value = "";
 
-  fetch("/api/command", {
+  fetch("http://127.0.0.1:5000/api/command", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ command })
