@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zifah | Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><h1>ZIFAH</h1><button id="toggle">☰</button></header>
+  <nav id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="admin.html">Admin Panel</a>
+    <a href="creator.html">Create AI</a>
+    <a href="upload.html">Upload</a>
+  </nav>
+  <main>
+    <div id="chat-log"></div>
+    <div id="input-bar">
+      <input type="text" id="user-input" placeholder="Type a command..." />
+      <button onclick="sendCommand()">Send</button>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

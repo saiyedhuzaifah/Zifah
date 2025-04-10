@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Upload to Zifah</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <header><h1>ZIFAH | Upload</h1><button id="toggle">☰</button></header>
+  <nav id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="admin.html">Admin Panel</a>
+    <a href="creator.html">Create AI</a>
+    <a href="upload.html">Upload</a>
+  </nav>
+  <main>
+    <form id="uploadForm">
+      <input type="file" name="file" required />
+      <button type="submit">Upload File</button>
+    </form>
+    <div id="upload-status"></div>
+  </main>
+  <script>
+    document.getElementById("toggle").onclick = () => document.getElementById("sidebar").classList.toggle("show");
+    document.getElementById("uploadForm").onsubmit = function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      fetch("/api/upload", {
+        method: "POST",
+        body: formData
+      }).then(res => res.text()).then(data => {
+        document.getElementById("upload-status").innerText = data;
+      });
+    };
+  </script>
+</body>
+</html>

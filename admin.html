@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Admin Panel</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <header><h1>ZIFAH ADMIN</h1><button id="toggle">☰</button></header>
+  <nav id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="admin.html">Admin Panel</a>
+    <a href="creator.html">Create AI</a>
+    <a href="upload.html">Upload</a>
+  </nav>
+  <main>
+    <h2>Status</h2>
+    <div id="admin-output">Loading...</div>
+  </main>
+  <script>
+    document.getElementById("toggle").onclick = () => document.getElementById("sidebar").classList.toggle("show");
+    fetch('/api/command', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ command: "status" })
+    }).then(res => res.json()).then(data => {
+      document.getElementById("admin-output").innerText = data.response;
+    });
+  </script>
+</body>
+</html>

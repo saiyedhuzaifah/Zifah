@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Create AI</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <header><h1>ZIFAH | Creator</h1><button id="toggle">☰</button></header>
+  <nav id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="admin.html">Admin Panel</a>
+    <a href="creator.html">Create AI</a>
+    <a href="upload.html">Upload</a>
+  </nav>
+  <main>
+    <h2>Create New Agent</h2>
+    <button onclick="createAI()">Create Agent</button>
+    <div id="result"></div>
+  </main>
+  <script>
+    document.getElementById("toggle").onclick = () => document.getElementById("sidebar").classList.toggle("show");
+    function createAI() {
+      fetch("/api/command", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ command: "create ai" })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("result").innerText = data.response;
+      });
+    }
+  </script>
+</body>
+</html>
